@@ -1,16 +1,28 @@
-import { createContext,useState} from 'react'
+import { createContext,useState,useReducer} from 'react'
 import { DUMMY_PRODUCTS } from '../dummy-products';
 export const CartContext=createContext({
     items:[],
     AddItemToCart:()=>{},
     UpdateCartItemQuantity:()=>{}
 })
+// function shopingCartReducer(state,action){
+//   if()
+//     return state;
+// }
 export default function CartContextProvider({children}){
+    // const [shoppingCartState,shoppingCartDispatch]=useReducer(shopingCartReducer,{
+    //     items: [],
+    //   })
+
     const [shoppingCart, setShoppingCart] = useState({
         items: [],
       });
     
       function handleAddItemToCart(id) {
+        // shoppingCartDispatch({
+        //   type:'ADD_ITEM',
+        //   payload:id,
+        // })
         setShoppingCart((prevShoppingCart) => {
           const updatedItems = [...prevShoppingCart.items];
     
