@@ -66,9 +66,12 @@ function App() {
       };
     });
   }
-
+  const ctxValue={
+    items:shoppingCart.items,
+    AddItemToCart:handleAddItemToCart,
+  }
   return (
-    <CartContext.Provider>
+    <CartContext.Provider value={ctxValue}>
       <Header
         cart={shoppingCart}
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
